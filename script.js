@@ -6,8 +6,9 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 615);
 }
+
 function draw() {
   background(240,67,151);
   // fill(240,200,67);
@@ -21,11 +22,20 @@ function draw() {
   textSize(20);
   text("Canada's Exports", 200,40);
 
-  //Iterate through the list and place elements
+  //Iterate through the list and place elements (Loop)
   Object.values(list).map((item, index) => {
-    rect(50, index * 30 + 70, item.amount, 10);
+    fill (item.color)
+    rect(50, index * 30 + 70, item.amount/180 * 300, 10);
+    
+    // 180/180 = 100%
+    // 37/18- = 21%
+
     textSize(10);
     textAlign ("left");
+    fill ("black")
     text(item.name, 50, index * 30 + 65);
+    textSize(20);
+    textAlign("right")
+    text(item.icon, 48, index * 30 + 75);
   });
 }
